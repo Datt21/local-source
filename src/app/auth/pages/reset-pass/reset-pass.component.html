@@ -1,0 +1,18 @@
+<form [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group row">
+        <label class="col-form-label col-sm-1 required" for="username">{{ 'reset_password.username' | translate
+          }}</label>
+        <div class="col-sm-11">
+          <input type="text" class="form-control" id="username" formControlName="username"
+            [ngClass]="{'is-invalid': (username.invalid || message) && isSubmit}" appAutoFocus>
+          <label class="col-sm-12" *ngIf="username.invalid && isSubmit"
+            class="error jquery-validation-error small form-text invalid-feedback">{{ 'message.require' |
+            translate}}</label>
+          <label class="text-danger" *ngIf="message">{{message}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

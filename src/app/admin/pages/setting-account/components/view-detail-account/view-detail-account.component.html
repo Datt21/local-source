@@ -1,0 +1,50 @@
+<form [formGroup]="form">
+  <div class="text-left">
+    <!-- Code -->
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">{{'setting_account.code'|translate}}</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" formControlName="code" [readOnly]="true">
+      </div>
+    </div>
+    <!-- name -->
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">{{'setting_account.name'|translate}}</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" formControlName="name" [readOnly]="true">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">{{'setting_account.department'|translate}}</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" formControlName="department" [readOnly]="true">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">{{'setting_account.ware_house'|translate}}</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" formControlName="warehouse" [readOnly]="true">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">{{'setting_account.cost_display_classification'|translate}}</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" formControlName="costDisplayClassification" [readOnly]="true">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">{{'setting_account.role'|translate}}</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" formControlName="role" [readOnly]="true">
+      </div>
+    </div>
+  </div>
+</form>
+<hr>
+<div class="app-modal-footer text-right">
+  <button type="button" class="btn btn-outline-secondary mr-1" data-dismiss="modal" (click)="btnCloseClick()">
+    <i class="far fa-times-circle"></i> {{'button.close' | translate}}
+  </button>
+</div>

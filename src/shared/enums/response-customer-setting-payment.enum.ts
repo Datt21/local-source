@@ -1,0 +1,5 @@
+export enum CUSTOMER_CLASSIFICATION {
+    SUPPLIER = 1,
+    CUSTOMER = 2,
+    SHARED = 3,
+  }

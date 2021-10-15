@@ -1,0 +1,23 @@
+<form (ngSubmit)="onConfirm()">
+  <div class="modal-header justify-content-center">
+    <h5 class="modal-title text-center">
+      {{ title }}
+    </h5>
+  </div>
+  <div class="modal-body">
+    <p class="f-16">{{ message }}</p>
+  </div>
+  <div class="modal-footer">
+    <div class="text-right">
+      <button (click)="onCancel()" class="btn btn-outline-secondary mr-1 btn-cancel" type="button"
+        style="min-width: 100px;">
+        <i aria-hidden="true" class="far fa-times-circle"></i>
+        {{'button.no' | translate}}
+      </button>
+      <button class="btn btn-primary btn-save" type="submit" style="min-width: 100px;">
+        <i aria-hidden="true" class="far fa-check-circle"></i>
+        {{'button.yes' | translate}}
+      </button>
+    </div>
+  </div>
+</form>

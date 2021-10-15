@@ -1,0 +1,18 @@
+<div class="buttons pt-0 pb-0">
+    <a (click)="btnCopyClick()" class="btn btn-link btn-sm text-dark" *ngIf="visibleCopy"
+        ngbTooltip="{{ 'button.copy' |translate }}">
+        <i class="far fa-copy"></i>
+    </a>
+    <a (click)="btnDetailClick()" class="btn btn-link btn-sm text-dark" *ngIf="visibleDetail"
+        ngbTooltip="{{ 'button.detail' |translate }}">
+        <i class="far fa-eye"></i>
+    </a>
+    <a (click)="btnEditClick()" class="btn btn-link btn-sm" *ngIf="visibleEdit"
+        ngbTooltip="{{ 'button.edit' |translate }}">
+        <i class="far fa-edit"></i>
+    </a>
+    <a (click)="btnDeleteClick()" class="btn btn-link btn-sm text-danger" *ngIf="visibleDelete"
+        ngbTooltip="{{ 'button.delete' |translate }}">
+        <i class="far fa-trash-alt"></i>
+    </a>
+</div>

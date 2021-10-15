@@ -1,0 +1,31 @@
+<ul class="navbar-nav ml-auto">
+  <li class="user-web">
+    <div class="user-info">
+      <p>{{ 'shared.hello'|translate }},</p>
+      <p class="f-w-900">{{ userName }}</p>
+    </div>
+  </li>
+  <li class="user-mobile" ngbDropdown>
+    <a href="javascript:" class="text-white" ngbDropdownToggle>
+      <i class="far fa-user-circle mr-1 f-18"></i>
+    </a>
+    <div class="dropdown drp-user" placement="auto">
+      <div class="dropdown-menu dropdown-menu-right profile-notification" ngbDropdownMenu>
+        <div class="pro-head">
+          <span>{{ 'shared.hello'|translate }}, </span>
+          <span>{{ userName }}</span>
+          <a href="javascript:" class="dud-logout" ngbTooltip="{{'button.logout'|translate}}" [placement]="'left'"
+            (click)="logOut()">
+            <i class="feather icon-log-out"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="user-web">
+    <a href="javascript:" class="ml-2" ngbTooltip="{{'button.logout'|translate}}" [placement]="'left'"
+      (click)="logOut()">
+      <i class="feather icon-log-out text-white f-18"></i>
+    </a>
+  </li>
+</ul>

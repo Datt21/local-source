@@ -1,0 +1,43 @@
+a.b-brand {
+  display: contents;
+}
+
+.title-logo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  // right: 35px;
+  // top: 5px;
+  padding: 0px 0px 5px 5px;
+}
+
+.nav-right-mobile {
+  display: none;
+}
+
+
+@media only screen and (max-width: 991px) {
+  a.b-brand {
+    display: block;
+  }
+
+  .title-logo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    position: absolute;
+    top: 10px;
+    left: 20%;
+    width: 60%;
+    padding: 0;
+  }
+
+  .nav-right-mobile {
+    display: block;
+  }
+}
+
+.dropdownMenu__Custom {
+  padding: 0;
+}

@@ -1,0 +1,29 @@
+.parent-info {
+  margin: 25px 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.store-name {
+  margin-left: 5px;
+  max-width: 185px;
+  word-wrap: break-word;
+}
+
+.change-store {
+  margin-top: 2px;
+}
+
+.navbar-wrapper {
+  position: relative;
+}
+
+.store-icon {
+  position: absolute;
+  left: 5px;
+  font-size: 33px;
+  top: -5px;
+  opacity: .15;
+  transform: rotate(0deg) scale(1);
+}

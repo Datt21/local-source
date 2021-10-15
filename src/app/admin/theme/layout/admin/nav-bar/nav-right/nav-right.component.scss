@@ -1,0 +1,28 @@
+.user-web {
+  display: inline-flex !important ;
+  margin-left: 10px;
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 5px;
+    margin-top: 15px;
+  }
+}
+
+.user-mobile {
+  display: none !important;
+}
+
+@media only screen and(max-width: 991px) {
+  .user-mobile {
+    display: inline-block !important;
+  }
+  .user-web {
+    display: none !important;
+  }
+
+  .navbar-nav > li {
+    padding:0px;
+  }
+}

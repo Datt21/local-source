@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card [hidHeader]="false" cardTitle="Sample autocomplete" [options]="true">
+            <div class="form-group row col-sm-12 col-md-4 col-xl-3 m-0 p-l-0">
+                <app-autocomplete [data]="data" placeholder="{{'user_management.full_name'|translate}}"
+                    (onSearch)="search($event)" (onSelected)="selectedItem($event)">
+                </app-autocomplete>
+            </div>
+        </app-card>
+    </div>
+    <div class="col-sm-12">
+        <app-card [hidHeader]="false" cardTitle="Sample Debouce" [options]="true">
+            <div class="form-group row col-sm-12 col-md-4 col-xl-3 m-0 p-l-0">
+                <label
+                    class="col-form-label col-sm-12 col-md-4 col-xl-3 pl-0">{{'user_management.full_name'|translate}}</label>
+                <input type="text" class="form-control col-sm-12 col-md-8 col-xl-9"
+                    placeholder="{{'user_management.full_name' | translate}}" [(ngModel)]="username"
+                    (keydown)="searchUser()" />
+            </div>
+        </app-card>
+    </div>
+</div>

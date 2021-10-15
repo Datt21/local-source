@@ -1,0 +1,79 @@
+<form [formGroup]="form">
+  <!--Start Row-->
+  <div class="row">
+    <!--oldPassword-->
+    <div class="col-sm-12">
+      <div class="form-group row">
+        <label class="col-form-label col-sm-4 text-dark" for="oldPassword">
+          {{ 'change_password.old_password' | translate }}
+          <span class="text-danger">*</span>
+        </label>
+        <div class=" col-sm-7">
+          <input type="password" class="form-control" formControlName="oldPassword"
+            [ngClass]="{'is-invalid': isSubmit && oldPassword.errors}">
+          <label class="col-sm-12" *ngIf="isSubmit && oldPassword.hasError('required')"
+            class="error form-text invalid-feedback">{{ 'message.require' | translate}}</label>
+          <label class="col-sm-12" *ngIf="isSubmit && oldPassword.errors && oldPassword.errors.incorrectPassword"
+            class="error form-text invalid-feedback">{{ 'change_password.message_incorrect_password' |
+            translate}}</label>
+        </div>
+      </div>
+    </div>
+    <!--End oldPassword-->
+  </div>
+  <!--End Row-->
+  <!--Start Row-->
+  <div class="row">
+    <!--newPassword-->
+    <div class="col-sm-12">
+      <div class="form-group row">
+        <label class="col-form-label col-sm-4 text-dark" for="newPassword">
+          {{ 'change_password.new_password' | translate }}
+          <span class="text-danger">*</span>
+        </label>
+        <div class=" col-sm-7">
+          <input type="password" class="form-control" formControlName="newPassword"
+            [ngClass]="{'is-invalid': isSubmit && (newPassword.errors || form.hasError('samePass'))}">
+          <label class="col-sm-12" *ngIf="isSubmit && newPassword.hasError('required')"
+            class="error form-text invalid-feedback">{{ 'message.require' | translate}}</label>
+          <label class="col-sm-12" *ngIf="isSubmit && newPassword.errors && newPassword.errors.minlength"
+            class="error form-text invalid-feedback">{{ 'change_password.min_length' | translate}}</label>
+          <label class="col-sm-12" *ngIf="isSubmit && form.hasError('samePass')"
+            class="error form-text invalid-feedback">{{ 'change_password.same_pass' | translate}}</label>
+        </div>
+      </div>
+    </div>
+    <!--End newPassword-->
+  </div>
+  <!--End Row-->
+  <!--Start Row-->
+  <div class="row item">
+    <!--confirmPassword-->
+    <div class="col-sm-12">
+      <div class="form-group row">
+        <label class="col-form-label col-sm-4 text-dark" for="confirmPassword">
+          {{ 'change_password.confirm_password' | translate }}
+          <span class="text-danger">*</span>
+        </label>
+        <div class=" col-sm-7">
+          <input type="password" class="form-control" formControlName="confirmPassword"
+            [ngClass]="{'is-invalid': isSubmit && (confirmPassword.errors || form.hasError('notSame'))}">
+          <label class="col-sm-12" *ngIf="isSubmit && confirmPassword.hasError('required')"
+            class="error form-text invalid-feedback">{{ 'message.require' | translate}}</label>
+          <label class="col-sm-12" *ngIf="isSubmit && form.hasError('notSame')"
+            class="error form-text invalid-feedback">{{ 'change_password.not_same' | translate}}</label>
+        </div>
+      </div>
+    </div>
+    <!--End confirmPassword-->
+  </div>
+  <!--End Row-->
+</form>
+<div class="modal-footer text-right">
+  <button *ngIf="isChangedPass === 1" class="btn btn-cancel btn-outline-secondary mr-1" (click)="btnCancelClick()">
+    <i class="far fa-times-circle"></i>
+    {{'button.cancel' | translate}}</button>
+  <button class="btn btn-save btn-primary" (click)="btnSaveClick()">
+    <i aria-hidden="true" class="far fa-check-circle"></i>
+    {{'button.save' | translate}}</button>
+</div>

@@ -1,0 +1,21 @@
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+a {
+    // font-size: 0.813rem;
+    font-weight: 600;
+}
+
+.button-name {
+    margin-left: 3px;
+    display: none;
+    transition: all .5s ease-out;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+}
+
+.buttons .btn:hover .button-name {
+    display: inline-block;
+}

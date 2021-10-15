@@ -1,0 +1,53 @@
+<form [formGroup]="form">
+  <div class="text-left">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">{{
+        "setting_payment.customer_id" | translate
+        }}</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" formControlName="customerCode" [readOnly]="true" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">{{
+        "setting_payment.customer_name" | translate
+        }}</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" formControlName="customerName" [readOnly]="true" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">{{
+        "setting_payment.delivery_code" | translate
+        }}</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" formControlName="warehouseCode" [readOnly]="true" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">{{
+        "setting_payment.delivery_name" | translate
+        }}</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" formControlName="warehouseName" [readOnly]="true" />
+      </div>
+    </div>
+    <div class="form-group row d-flex align-items-center">
+      <span class="col-sm-3"></span>
+      <div class="col-sm-9">
+        <label class="custom-control custom-checkbox d-block">
+          <input type="checkbox" class="custom-control-input" formControlName="isRepresentative" disabled>
+          <span class="custom-control-label">{{
+            "setting_payment.delivery_rep_point" | translate
+            }}</span>
+        </label>
+      </div>
+    </div>
+  </div>
+</form>
+<hr />
+<div class="app-modal-footer text-right">
+  <button type="button" class="btn btn-outline-secondary mr-1" data-dismiss="modal" (click)="btnCloseClick()">
+    <i class="far fa-times-circle"></i> {{ "button.close" | translate }}
+  </button>
+</div>

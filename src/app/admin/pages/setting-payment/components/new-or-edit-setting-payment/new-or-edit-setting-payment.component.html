@@ -1,0 +1,56 @@
+<form [formGroup]="form">
+  <div class="text-left">
+    <input type="text" formControlName="id" [hidden]="true">
+    <div class="form-group row set_width_input_popup">
+      <label class="required col-sm-3 col-form-label b">{{
+        "setting_payment.customer" | translate
+        }}</label>
+      <div class="col-sm-9">
+        <ng-select class="required" [items]="listWarehouse" bindLabel="name" dropdownPosition="auto" bindValue="code"
+          placeholder="{{ 'setting_payment.customer' | translate }}" [virtualScroll]="true" [ngClass]="{
+            'is-invalid':
+              !warehouseCode.valid &&
+              warehouseCode.errors.required &&
+              isValidate
+          }" formControlName="customerCode">
+        </ng-select>
+      </div>
+    </div>
+    <div class="form-group row set_width_input_popup">
+      <label class="required col-sm-3 col-form-label b">{{
+        "setting_payment.warehouse" | translate
+        }}</label>
+      <div class="col-sm-9">
+        <ng-select class="required" [items]="listWarehouse" bindLabel="name" dropdownPosition="auto" bindValue="code"
+          placeholder="{{ 'setting_payment.warehouse' | translate }}" [virtualScroll]="true" [ngClass]="{
+            'is-invalid':
+              !warehouseCode.valid &&
+              warehouseCode.errors.required &&
+              isValidate
+          }" formControlName="warehouseCode">
+        </ng-select>
+      </div>
+    </div>
+    <div class="form-group row d-flex align-items-center">
+      <span class="col-sm-3"></span>
+      <div class="col-sm-9">
+        <label class="custom-control custom-checkbox d-block">
+          <input type="checkbox" class="custom-control-input" formControlName="isRepresentative">
+          <span class="custom-control-label">{{
+            "setting_payment.delivery_rep_point" | translate
+            }}</span>
+        </label>
+      </div>
+    </div>
+  </div>
+</form>
+<hr />
+<div class="app-modal-footer text-right">
+  <button type="button" class="btn btn-outline-secondary mr-1" data-dismiss="modal" (click)="btnCancelClick()">
+    <i class="far fa-times-circle"></i> {{ "button.cancel" | translate }}
+  </button>
+  <button type="button" class="btn btn-primary" (click)="btnSaveClick()">
+    <i aria-hidden="true" class="far fa-check-circle"></i>
+    {{ (isEdit ? 'button.save' : 'button.register') | translate}}
+  </button>
+</div>

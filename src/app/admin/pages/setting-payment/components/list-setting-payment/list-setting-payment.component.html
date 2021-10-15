@@ -1,0 +1,101 @@
+<div class="row btn-page">
+  <div class="col-sm-12">
+    <!-- Button add -->
+    <div class="row col-sm-12 mb-2">
+      <button class="btn btn-primary btn-round has-ripple" (click)="btnAddClick()">
+        <i class="feather icon-plus"></i>
+        {{ "button.add" | translate }}
+      </button>
+    </div>
+
+    <!-- Search result -->
+    <app-card [hidHeader]="false" cardTitle="{{ 'shared.search_result' | translate }}" cardClass="card-datatable"
+      [options]="true">
+      <div class="table-responsive">
+        <table class="
+            table table-bordered
+            nowrap
+            table-striped table-sticky-last-col table-sticky-first-col
+          ">
+          <thead class="thead-light">
+            <tr>
+              <th class="text-center" style="min-width: 40px">
+                {{ "shared.sharp" | translate }}
+              </th>
+              <th class="text-center" style="min-width: 100px">
+                {{ "setting_payment.customer_id" | translate }}
+              </th>
+              <th class="text-center" style="min-width: 200px">
+                {{ "setting_payment.customer_a_name" | translate }}
+              </th>
+              <th class="text-center" style="min-width: 100px">
+                {{ "setting_payment.delivery_code" | translate }}
+              </th>
+              <th class="text-center" style="min-width: 200px">
+                {{ "setting_payment.delivery_a_name" | translate }}
+              </th>
+              <th class="text-center" style="min-width: 80px">
+                {{ "shared.operation" | translate }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of $items; let i = index; trackBy: trackByFn">
+              <td class="text-center">
+                {{ i | calculateItemNo: searchCache }}
+              </td>
+              <td class="text-center">{{ item.customerCode }}</td>
+              <td class="text-left">{{ item.customerName }}</td>
+              <td class="text-center">{{ item.warehouseCode }}</td>
+              <td class="text-left">{{ item.warehouseName }}</td>
+              <td>
+                <app-button-master-table (onViewDetail)="btnViewDetailClick(item)" (onEdit)="btnEditClick(item)"
+                  (onDelete)="btnDeleteClick(item)"></app-button-master-table>
+              </td>
+            </tr>
+            <tr *ngIf="($items == null || $items.length == 0) && isSearched">
+              <td class="text-center text-danger" colspan="7">
+                {{ "message.data_not_found" | translate }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-card>
+  </div>
+</div>
+
+<app-ui-modal #newOrEditModal [dialogClass]="'modal-md'">
+  <div class="app-modal-header text-center w-100">
+    <h5 class="modal-title">
+      {{
+      (isEdit ? "setting_payment.edit_title" : "setting_payment.add_title")
+      | translate
+      }}
+    </h5>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close"
+      (click)="newOrEditModal.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="app-modal-body">
+    <app-new-or-edit-setting-payment #newOrEditComponent (onCancel)="newOrEditModal.hide()" (onSave)="save($event)">
+    </app-new-or-edit-setting-payment>
+  </div>
+</app-ui-modal>
+
+<app-ui-modal #viewDetailModal [dialogClass]="'modal-md'">
+  <div class="app-modal-header text-center w-100">
+    <h5 class="modal-title">
+      {{ "setting_payment.detail_title" | translate }}
+    </h5>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close"
+      (click)="viewDetailModal.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="app-modal-body">
+    <app-view-detail-setting-payment #viewDetailComponent (onClose)="viewDetailModal.hide()">
+    </app-view-detail-setting-payment>
+  </div>
+</app-ui-modal>

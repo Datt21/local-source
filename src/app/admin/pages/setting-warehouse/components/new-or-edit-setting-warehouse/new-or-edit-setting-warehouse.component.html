@@ -1,0 +1,145 @@
+<form [formGroup]="form" class="popup-center">
+  <div class="form-group row">
+    <label class="required col-sm-4 col-form-label">{{
+      "setting_warehouse.code" | translate
+      }}</label>
+    <div class="col-sm-8">
+      <input [readOnly]="isEdit" type="text" class="form-control required"
+        placeholder="{{ 'setting_warehouse.code' | translate }}" formControlName="code" [ngClass]="{
+          'is-invalid': !code.valid && code.errors.required && isValidate
+        }" appOnlyNumber maxlength="6" />
+      <label *ngIf="!code.valid && code.errors.required && isValidate"
+        class="error jquery-validation-error small form-text invalid-feedback">
+        {{ "message.require" | translate }}
+      </label>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="required col-sm-4 col-form-label">
+      {{ "setting_warehouse.name" | translate }}
+    </label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control required" placeholder="{{ 'setting_warehouse.name' | translate }}"
+        formControlName="name" [ngClass]="{
+          'is-invalid': !name.valid && name.errors.required && isValidate
+        }" maxlength="255" />
+      <label *ngIf="!name.valid && name.errors.required && isValidate"
+        class="error jquery-validation-error small form-text invalid-feedback">
+        {{ "message.require" | translate }}
+      </label>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-4 col-form-label">
+      {{ "setting_warehouse.kana_name" | translate }}
+    </label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" placeholder="{{ 'setting_warehouse.kana_name' | translate }}"
+        formControlName="kanaName" [ngClass]="{
+          'is-invalid':
+            !kanaName.valid && kanaName.errors.required && isValidate
+        }" maxlength="255" />
+      <label *ngIf="!kanaName.valid && kanaName.errors.required && isValidate"
+        class="error jquery-validation-error small form-text invalid-feedback">
+        {{ "message.require" | translate }}
+      </label>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="required col-sm-4 col-form-label">
+      {{ "setting_warehouse.warehouse_abbreviation" | translate }}
+    </label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control required" placeholder="{{
+          'setting_warehouse.warehouse_abbreviation' | translate
+        }}" formControlName="warehouseAbbreviation" [ngClass]="{
+          'is-invalid':
+            !warehouseAbbreviation.valid &&
+            warehouseAbbreviation.errors.required &&
+            isValidate
+        }" />
+      <label *ngIf="
+          !warehouseAbbreviation.valid &&
+          warehouseAbbreviation.errors.required &&
+          isValidate
+        " class="error jquery-validation-error small form-text invalid-feedback">
+        {{ "message.require" | translate }}
+      </label>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="required col-sm-4 col-form-label">
+      {{ "setting_warehouse.inventory_management" | translate }}
+    </label>
+    <div class="col-sm-8">
+      <ng-select class="required" [items]="listDepartmentMaster" bindLabel="label" dropdownPosition="auto"
+        bindValue="value" placeholder="{{ 'setting_warehouse.inventory_management' | translate }}"
+        [virtualScroll]="true" [loading]="isLoadDepartments"
+        [ngClass]="{'is-invalid': !inventoryManagement.valid && inventoryManagement.errors.required && isValidate}"
+        formControlName="inventoryManagement">
+      </ng-select>
+      <label *ngIf="!inventoryManagement.valid && inventoryManagement.errors.required && isValidate"
+        class="error jquery-validation-error small form-text invalid-feedback">
+        {{ "message.require" | translate }}
+      </label>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="required col-sm-4 col-form-label">
+      {{ "setting_warehouse.logistics_management" | translate }}
+    </label>
+    <div class="col-sm-8">
+      <ng-select class="required" [items]="listDepartmentMaster" bindLabel="label" dropdownPosition="auto"
+        bindValue="value" placeholder="{{ 'setting_warehouse.logistics_management' | translate }}"
+        [virtualScroll]="true" [loading]="isLoadDepartments"
+        [ngClass]="{'is-invalid': !logisticsManagement.valid && logisticsManagement.errors.required && isValidate}"
+        formControlName="logisticsManagement">
+      </ng-select>
+      <label *ngIf="!logisticsManagement.valid && logisticsManagement.errors.required && isValidate"
+        class="error jquery-validation-error small form-text invalid-feedback">
+        {{ "message.require" | translate }}
+      </label>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="required col-sm-4 col-form-label">{{
+      "setting_warehouse.inventory_allocation_classification" | translate
+      }}</label>
+    <div class="col-sm-8">
+      <ng-select class="required" [items]="allocationClassification" bindLabel="status" dropdownPosition="auto"
+        bindValue="status" placeholder="{{
+          'setting_warehouse.inventory_allocation_classification' | translate
+        }}" [virtualScroll]="true"
+        [ngClass]="{'is-invalid': !inventoryAllocationClassification.valid && inventoryAllocationClassification.errors.required && isValidate}"
+        formControlName="inventoryAllocationClassification">
+      </ng-select>
+      <label
+        *ngIf="!inventoryAllocationClassification.valid && inventoryAllocationClassification.errors.required && isValidate"
+        class="error jquery-validation-error small form-text invalid-feedback">
+        {{ "message.require" | translate }}
+      </label>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-4 col-form-label">{{
+      "setting_warehouse.address_print_code" | translate
+      }}</label>
+    <div class="col-sm-8">
+      <ng-select class="" [items]="fakeaddressPrintCode" bindLabel="name" dropdownPosition="auto" bindValue="code"
+        placeholder="{{ 'setting_warehouse.address_print_code' | translate }}" [virtualScroll]="true"
+        formControlName="addressPrintCode">
+      </ng-select>
+    </div>
+  </div>
+</form>
+
+<hr />
+<div class="app-modal-footer text-right">
+  <button type="button" class="btn btn-outline-secondary mr-1" data-dismiss="modal" (click)="btnCancelClick()">
+    <i class="far fa-times-circle"></i> {{ "button.cancel" | translate }}
+  </button>
+  <button type="button" class="btn btn-primary" (click)="btnSaveClick()">
+    <i aria-hidden="true" class="far fa-check-circle"></i>
+    {{ (isEdit ? 'button.save' : 'button.register') | translate}}
+  </button>
+</div>
